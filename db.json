@@ -1,12 +1,11 @@
 {
-  "goods": [
+  "products": [
     {
       "id": 0,
       "title": "Игровая приставка Sony PlayStation 4 Pro",
       "price": 33990,
       "sale": false,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1033180284.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1033180283.jpg",
       "category": "Игровая приставка"
     },
     {
@@ -15,7 +14,6 @@
       "price": 16499,
       "sale": true,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1027495663.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1028469540.jpg",
       "category": "Игровая приставка"
     },
     {
@@ -32,7 +30,6 @@
       "price": 23411,
       "sale": true,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1024822131.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1024822128.jpg",
       "category": "Игровая приставка"
     },
     {
@@ -41,7 +38,6 @@
       "price": 24751,
       "sale": false,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1021386685.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1026072683.jpg",
       "category": "Игровая приставка"
     },
     {
@@ -50,7 +46,6 @@
       "price": 3624,
       "sale": true,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1024928305.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1024928306.jpg",
       "category": "Игровая приставка"
     },
     {
@@ -59,7 +54,6 @@
       "price": 1551,
       "sale": true,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1021877092.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1021877092.jpg",
       "category": "Игровая приставка"
     },
     {
@@ -68,7 +62,6 @@
       "price": 10445,
       "sale": false,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1025222877.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/102538227.jpg",
       "category": "Игровая приставка"
     },
     {
@@ -77,7 +70,6 @@
       "price": 2390,
       "sale": false,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1015518726.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/102518725.jpg",
       "category": "Периферия для ПК"
     },
     {
@@ -86,7 +78,6 @@
       "price": 566,
       "sale": true,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1028488609.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1028488611.jpg",
       "category": "Периферия для ПК"
     },
     {
@@ -95,7 +86,6 @@
       "price": 12848,
       "sale": true,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1027006299.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1027006301.jpg",
       "category": "Периферия для ПК"
     },
     {
@@ -104,7 +94,6 @@
       "price": 1649,
       "sale": false,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1026202934.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1026202933.jpg",
       "category": "Периферия для ПК"
     },
     {
@@ -113,7 +102,6 @@
       "price": 1097,
       "sale": true,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1025117257.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1025117012.jpg",
       "category": "Периферия для ПК"
     },
     {
@@ -122,7 +110,6 @@
       "price": 350,
       "sale": false,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1014472326.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1014472325.jpg",
       "category": "Периферия для ПК"
     },
     {
@@ -131,7 +118,6 @@
       "price": 1279,
       "sale": true,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1026748248.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1026748250.jpg",
       "category": "Периферия для ПК"
     },
     {
@@ -156,7 +142,6 @@
       "price": 3990,
       "sale": false,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1023840682.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1023849642.jpg",
       "category": "Игры и софт"
     },
     {
@@ -173,7 +158,6 @@
       "price": 9412,
       "sale": false,
       "img": "https://cdn1.ozone.ru/multimedia/c400/1013975751.jpg",
-      "hoverImg": "https://cdn1.ozone.ru/multimedia/c400/1013975799.jpg",
       "category": "Игры и софт"
     },
     {
@@ -215,46 +199,7 @@
       "img": "https://cdn1.ozone.ru/multimedia/c400/1023547851.jpg",
       "category": "Игры и софт",
       "id": 24
-    },
-    {
-      "title": "Игра Terraria (PS4 Sony, PC)",
-      "price": 1794,
-      "sale": true,
-      "img": "https://cdn1.ozone.ru/multimedia/c400/1023547851.jpg",
-      "category": "Игры и софт",
-      "id": 25
-    },
-    {
-      "title": "Игра Terraria (PS4 Sony, PC)",
-      "price": 1794,
-      "sale": true,
-      "img": "https://cdn1.ozone.ru/multimedia/c400/1023547851.jpg",
-      "category": "Игры и софт",
-      "id": 26
-    },
-    {
-      "title": "Игра Terraria (PS4 Sony, PC)",
-      "price": 1794,
-      "sale": true,
-      "img": "https://cdn1.ozone.ru/multimedia/c400/1023547851.jpg",
-      "category": "Игры и софт",
-      "id": 27
-    },
-    {
-      "title": "Игра Terraria (PS4 Sony, PC)",
-      "price": 1794,
-      "sale": true,
-      "img": "https://cdn1.ozone.ru/multimedia/c400/1023547851.jpg",
-      "category": "Игры и софт",
-      "id": 28
-    },
-    {
-      "title": "Игра Terraria (PS4 Sony, PC)",
-      "price": 1794,
-      "sale": true,
-      "img": "https://cdn1.ozone.ru/multimedia/c400/1023547851.jpg",
-      "category": "Игры и софт",
-      "id": 29
     }
+    
   ]
 }

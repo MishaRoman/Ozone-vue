@@ -3,11 +3,11 @@
     <div class="card">
       <div class="card-img-wrapper">
         <span class="card-img-top"
-          style="background-image: url('https://cdn1.ozone.ru/multimedia/c400/1033180284.jpg')"></span>
+          :style='{ backgroundImage: "url(" + product_data.img + ")" }'></span>
       </div>
       <div class="card-body justify-content-between">
-        <div class="card-price">33990 ₽</div>
-        <h5 class="card-title">Игровая приставка Sony PlayStation 4 Pro</h5>
+        <div class="card-price">{{product_data.price}} ₽</div>
+        <h5 class="card-title">{{product_data.title}}</h5>
         <button class="btn btn-primary">В корзину</button>
       </div>
     </div>
@@ -16,6 +16,14 @@
 
 <script>
 export default {
-  name: 'v-catalog-item'
+  name: 'v-catalog-item',
+  props: {
+    product_data: {
+      type: Object,
+      default() {
+        return {}
+      }
+    }
+  }
 }
 </script>
