@@ -8,22 +8,34 @@
       <div class="card-body justify-content-between">
         <div class="card-price">{{product_data.price}} ₽</div>
         <h5 class="card-title">{{product_data.title}}</h5>
-        <button class="btn btn-primary">В корзину</button>
+        <button
+          class="btn btn-primary"
+          @click="addToCart"
+        >В корзину</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'v-catalog-item',
-  props: {
-    product_data: {
-      type: Object,
-      default() {
-        return {}
+  import {mapActions} from 'vuex'
+  export default {
+    name: 'v-catalog-item',
+    props: {
+      product_data: {
+        type: Object,
+        default() {
+          return {}
+        }
+      }
+    },
+    methods: {
+      ...mapActions ([
+        'ADD_PRODUCT_TO_CART'
+      ]),
+      addToCart() {
+        this.ADD_PRODUCT_TO_CART(this.product_data)
       }
     }
   }
-}
 </script>

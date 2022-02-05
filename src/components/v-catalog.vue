@@ -20,33 +20,33 @@
 </template>
 
 <script>
-import vFilter from './layouts/v-filter'
-import vCatalogItem from './v-catalog-item'
-import {mapActions, mapGetters} from 'vuex'
+  import vFilter from './layouts/v-filter'
+  import vCatalogItem from './v-catalog-item'
+  import {mapActions, mapGetters} from 'vuex'
 
-export default {
-  name: 'v-catalog',
-  components: {
-    vFilter,
-    vCatalogItem,
-  },
-  data() {
-    return {
-      products: []
+  export default {
+    name: 'v-catalog',
+    components: {
+      vFilter,
+      vCatalogItem,
+    },
+    data() {
+      return {
+        products: [],
+      }
+    },
+    computed: {
+      ...mapGetters([
+        'PRODUCTS'
+      ])
+    },
+    methods: {
+      ...mapActions([
+        'GET_PRODUCTS_FROM_API'
+      ]),
+    },
+    mounted() {
+      this.GET_PRODUCTS_FROM_API()
     }
-  },
-  computed: {
-    ...mapGetters([
-      'PRODUCTS'
-    ])
-  },
-  methods: {
-    ...mapActions([
-      'GET_PRODUCTS_FROM_API'
-    ])
-  },
-  mounted() {
-    this.GET_PRODUCTS_FROM_API()
   }
-}
 </script>
