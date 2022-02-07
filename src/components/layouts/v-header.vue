@@ -7,18 +7,10 @@
         <div class="navbar-wrapper d-flex justify-content-between align-items-center">
           <a class="logo" href="/"></a>
           <div class="d-flex control-wrapper">
-            <div class="catalog-button">
-              <button>
-              <span class="catalog-button_burger"></span><span class="catalog-button_text">Каталог</span>
-              </button>
-              <div class="catalog">
-              <ul class="catalog-list">
-                <li>Игровая приставка</li>
-                <li>Периферия для ПК</li>
-                <li>Игры и софт</li>
-              </ul>
-              </div>
-            </div>
+            <v-select 
+              :categories="CATEGORIES"
+              @selectCategory="sortByCategory"
+            />
             <div class="search">
               <div class="search-wrapper">
               <input class="search-wrapper_input" type="text" />
@@ -51,15 +43,17 @@
 
 <script>
   import { mapGetters } from 'vuex'
+  import vSelect from './v-select'
   import vCart from '../cart/v-cart'
   export default {
     name: 'v-header',
     data() {
       return {
-        show: false
+        show: false,
       }
     },
     components: {
+      vSelect,
       vCart
     },
     methods: {
@@ -68,11 +62,15 @@
       },
       closeCart() {
         this.show = false
+      },
+      sortByCategory(category) {
+        this.$emit('sortByCategory', category)
       }
     },
     computed: {
       ...mapGetters([
-        'CART'
+        'CART',
+        'CATEGORIES'
       ])
     }
   }

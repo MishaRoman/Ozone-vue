@@ -1,4 +1,27 @@
 {
+  "categories" : [
+    {
+      "id": 0,
+      "name": "Все",
+      "code": "all"
+    },
+    {
+      "id": 1,
+      "name": "Игровая приставка",
+      "code": "consoles"
+    },
+    {
+      "id": 2,
+      "name": "Периферия для ПК",
+      "code": "accessories-for-pc"
+    },
+    {
+      "id": 3,
+      "name": "Игры и софт",
+      "code": "games"
+    }
+  ],
+  
   "products": [
     {
       "id": 0,
@@ -202,4 +225,5 @@
     }
     
   ]
+  
 }

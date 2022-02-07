@@ -14,6 +14,19 @@ export default {
       return error
     })
   },
+  GET_CATEGORIES_FROM_API({commit}) {
+    return axios('http://localhost:3000/categories', {
+      method: 'GET'
+    })
+    .then((categories) => {
+      commit('SET_CATEGORIES_TO_STATE', categories.data)
+      return categories
+    })
+    .catch((error) => {
+      console.log(error)
+      return error
+    })
+  },
   ADD_PRODUCT_TO_CART({commit}, product) {
     commit('ADD_TO_CART', product)
   },

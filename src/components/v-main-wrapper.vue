@@ -1,12 +1,10 @@
 <template>
   <div class="v-main-wrapper">
-    <v-header />
     <v-catalog />
   </div>
 </template>
 
 <script>
-  import vHeader from './layouts/v-header'
   import vCatalog from './catalog/v-catalog'
 
   export default {
@@ -17,7 +15,6 @@
         }
       },
       components: {
-          vHeader,
           vCatalog,
       },
       methods: {

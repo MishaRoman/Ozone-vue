@@ -123,7 +123,7 @@ nav .control-wrapper {
 
 nav .catalog {
   position: absolute;
-  display: none;
+  display: block;
   top: 45px;
   left: 0;
   z-index: 120;
@@ -200,7 +200,7 @@ nav .catalog-button button {
 nav .catalog-button_burger {
   width: 24px;
   height: 24px;
-  margin-right: 12px;
+  margin-right: 8px;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath fill='%23fff' d='M9 5h12a1 1 0 010 2H9a1 1 0 110-2zm0 6h12a1 1 0 010 2H9a1 1 0 010-2zm0 6h6a1 1 0 010 2H9a1 1 0 010-2zM3.5 7.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm0 6a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm0 6a1.5 1.5 0 110-3 1.5 1.5 0 010 3z'/%3E%3C/svg%3E");
 }
 
