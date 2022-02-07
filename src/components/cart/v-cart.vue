@@ -2,7 +2,7 @@
   <div class="cart">
     <div class="cart-body">
       <div class="cart-title">Корзина</div>
-      <div class="cart-total">Общая сумма: <span>0</span> руб</div>
+      <div class="cart-total">Общая сумма: <span>{{cartSum}}</span> руб</div>
 
       <div class="cart-wrapper">
         <div
@@ -75,12 +75,19 @@
       },
       incrementCartItem(index) {
         this.INCREMENT_CART_ITEM(index)
-      }
+      },
     },
     computed: {
       ...mapGetters([
         'CART'
-      ])
+      ]),
+      cartSum() {
+        let result = 0
+        for(let i in this.CART) {
+          result += this.CART[i].price * this.CART[i].quantity
+        }
+        return result
+      }
     },
   }
 </script>

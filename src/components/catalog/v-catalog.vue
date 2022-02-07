@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import vFilter from './layouts/v-filter'
+  import vFilter from '../layouts/v-filter'
   import vCatalogItem from './v-catalog-item'
   import {mapActions, mapGetters} from 'vuex'
 

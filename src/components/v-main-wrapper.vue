@@ -7,7 +7,7 @@
 
 <script>
   import vHeader from './layouts/v-header'
-  import vCatalog from './v-catalog'
+  import vCatalog from './catalog/v-catalog'
 
   export default {
       name: 'v-main-wrapper',
