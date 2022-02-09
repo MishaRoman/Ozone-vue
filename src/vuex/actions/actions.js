@@ -35,5 +35,8 @@ export default {
   },
   INCREMENT_CART_ITEM({commit}, index) {
     commit('INCREMENT_CART_ITEM', index)
-  }
+  },
+  SORT_BY_CATEGORY({commit}, category) {
+    commit('SORT_BY_CATEGORY', category)
+  },
 }

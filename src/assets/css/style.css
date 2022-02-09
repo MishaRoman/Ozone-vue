@@ -462,8 +462,16 @@ nav .search-btn button::before {
 }
 
 .filter-check_checkbox {
-  opacity: 0;
+  width: 15px;
+  height: 15px;
   position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #005bff;
+  border-radius: 2px;
   cursor: pointer;
 }
 

@@ -4,12 +4,43 @@
     <main>
       <div class="container">
         <div class="row">
-          <v-filter />
+          <div class="col-3 col-xl-2 d-none d-lg-block">
+            <div class="filter">
+              <div class="filter-title">
+                <h5>Фильтр</h5>
+              </div>
+              <div class="filter-price">
+                <div class="filter-price_title">
+                  Цена
+                </div>
+                <form>
+                  <div class="filter-price_range">
+                    <div class="filter-price_input-wrapper">
+                      <label for="min" class="filter-price_label">от</label>
+                      <input id="min" class="filter-price_input" v-model.number="minPrice">
+                    </div>
+                    <div class="filter-price_input-wrapper">
+                      <label for="max" class="filter-price_label">до</label>
+                      <input id="max" class="filter-price_input" v-model.number="maxPrice">
+                    </div>
+                    
+                  </div>
+                  <button class="btn mb-3 mt-1" @click.prevent="sortByPrice">Отфильтровать</button>
+                </form>
+              </div>
+              <div class="filter-check">
+                <label class="filter-check_label">
+                  <input type="checkbox" value="sale" class="filter-check_checkbox" id="discount-checkbox" v-model="checked">
+                  <span class="filter-check_label-text">Акция</span>
+                </label>
+              </div>
+            </div>
+          </div>
           <div class="col-12 col-lg-9 col-xl-10">
             <div class="container">
               <div class="row no-gutters goods">
                 <v-catalog-item
-                  v-for="product in filteredProducts"
+                  v-for="product in sortedProducts"
                   :key="product.id"
                   :product_data="product"
                 />
@@ -24,7 +55,6 @@
 
 <script>
   import vHeader from '../layouts/v-header'
-  import vFilter from '../layouts/v-filter'
   import vCatalogItem from './v-catalog-item'
   import {mapActions, mapGetters} from 'vuex'
 
@@ -32,35 +62,42 @@
     name: 'v-catalog',
     components: {
       vHeader,
-      vFilter,
       vCatalogItem,
     },
+    
     data() {
       return {
-        products: [],
-        sortedProducts: [],
+        checked: false,
+        minPrice: 0,
+        maxPrice: 100000,
       }
     },
     computed: {
       ...mapGetters([
-        'PRODUCTS'
+        'SORTED_PRODUCTS',
       ]),
-      filteredProducts() {
-        if (this.sortedProducts.length) {
-          return this.sortedProducts
+      sortedProducts() {
+        if (this.checked) {
+          return this.SORTED_PRODUCTS.filter(p => p.sale)
         } else {
-          return this.PRODUCTS
+          return this.SORTED_PRODUCTS
         }
       },
+      
     },
     methods: {
       ...mapActions([
         'GET_PRODUCTS_FROM_API',
-        'GET_CATEGORIES_FROM_API'
+        'GET_CATEGORIES_FROM_API',
+        'SORT_BY_CATEGORY',
       ]),
       sortByCategory(category) {
-        this.sortedProducts = this.PRODUCTS.filter(cat => cat.category == category.name)
+        this.SORT_BY_CATEGORY(category)
+      },
+      sortByPrice() {
+        this.$store.state.sortedProducts = this.SORTED_PRODUCTS.filter(i => i.price >= this.minPrice && i.price <= this.maxPrice)
       }
+      
     },
     mounted() {
       this.GET_PRODUCTS_FROM_API()

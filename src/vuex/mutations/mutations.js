@@ -35,5 +35,9 @@ export default {
   },
   INCREMENT_CART_ITEM: (state, index) => {
     state.cart[index].quantity++
-  }
+  },
+  SORT_BY_CATEGORY(state, category) {
+    state.sortedProducts = state.products.filter(p => p.category == category.name)
+  },
+  
 }

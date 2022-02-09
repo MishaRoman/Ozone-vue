@@ -11,6 +11,7 @@ Vue.use(Vuex);
 let store = new Vuex.Store({
   state: {
     products: [],
+    sortedProducts: [],
     categories: [],
     cart: [],
   },
