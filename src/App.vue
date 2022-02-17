@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <v-main-wrapper />
+    <v-catalog />
   </div>
 </template>
 
 <script>
-import vMainWrapper from './components/v-main-wrapper'
+import vCatalog from './components/catalog/v-catalog'
 
 export default {
   name: 'App',
   components: {
-    vMainWrapper
+    vCatalog
   }
 }
 </script>

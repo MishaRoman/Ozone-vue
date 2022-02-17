@@ -317,6 +317,8 @@ nav .search-btn button::before {
           justify-content: flex-start;
   padding-top: 8px;
   margin: 0 15px;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 #cart .counter {

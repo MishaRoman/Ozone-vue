@@ -18,7 +18,8 @@
 </template>
 
 <script>
-  import {mapActions} from 'vuex'
+  import store from '@/vuex/store'
+
   export default {
     name: 'v-catalog-item',
     props: {
@@ -30,11 +31,8 @@
       }
     },
     methods: {
-      ...mapActions ([
-        'ADD_PRODUCT_TO_CART'
-      ]),
       addToCart() {
-        this.ADD_PRODUCT_TO_CART(this.product_data)
+        store.dispatch('ADD_PRODUCT_TO_CART', this.product_data)
       }
     }
   }

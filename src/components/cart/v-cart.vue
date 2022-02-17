@@ -2,12 +2,12 @@
   <div class="cart">
     <div class="cart-body">
       <div class="cart-title">Корзина</div>
-      <div class="cart-total">Общая сумма: <span>{{cartSum}}</span> руб</div>
+      <div class="cart-total">Общая сумма: <span>{{$store.getters.CART_SUM}}</span> руб</div>
 
       <div class="cart-wrapper">
         <div
           class="cart-items"
-          v-if="CART.length"
+          v-if="$store.getters.CART.length"
         >
           <table class="table">
             <thead>
@@ -20,7 +20,7 @@
             </thead>
             <tbody>
               <tr
-                v-for="(product, i) in CART"
+                v-for="(product, i) in $store.getters.CART"
                 :key="product.id"
               >
                 <th scope="row">{{product.quantity}}</th>
@@ -59,35 +59,20 @@
 </template>
 
 <script>
-  import {mapGetters, mapActions} from 'vuex'
+  import store from '@/vuex/store'
+
   export default {
     name: 'v-cart',
     methods: {
-      ...mapActions([
-        'REMOVE_PRODUCT_FROM_CART',
-        'INCREMENT_CART_ITEM'
-      ]),
       removeFromCart(index) {
-        this.REMOVE_PRODUCT_FROM_CART(index)
+        store.dispatch('REMOVE_PRODUCT_FROM_CART', index)
       },
       closeCart() {
         this.$emit('closeCart')
       },
       incrementCartItem(index) {
-        this.INCREMENT_CART_ITEM(index)
+        store.dispatch('INCREMENT_CART_ITEM', index)
       },
-    },
-    computed: {
-      ...mapGetters([
-        'CART'
-      ]),
-      cartSum() {
-        let result = 0
-        for(let i in this.CART) {
-          result += this.CART[i].price * this.CART[i].quantity
-        }
-        return result
-      }
     },
   }
 </script>

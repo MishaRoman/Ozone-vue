@@ -1,6 +1,6 @@
 <template>
   <div class="v-catalog">
-    <v-header @sortByCategory="sortByCategory" />
+    <v-header />
     <main>
       <div class="container">
         <div class="row">
@@ -40,7 +40,7 @@
             <div class="container">
               <div class="row no-gutters goods">
                 <v-catalog-item
-                  v-for="product in sortedProducts"
+                  v-for="product in products"
                   :key="product.id"
                   :product_data="product"
                 />
@@ -56,7 +56,7 @@
 <script>
   import vHeader from '../layouts/v-header'
   import vCatalogItem from './v-catalog-item'
-  import {mapActions, mapGetters} from 'vuex'
+  import store from '@/vuex/store'
 
   export default {
     name: 'v-catalog',
@@ -73,35 +73,23 @@
       }
     },
     computed: {
-      ...mapGetters([
-        'SORTED_PRODUCTS',
-      ]),
-      sortedProducts() {
+      products() {
         if (this.checked) {
-          return this.SORTED_PRODUCTS.filter(p => p.sale)
+          return store.getters.SORTED_PRODUCTS.filter(p => p.sale)
         } else {
-          return this.SORTED_PRODUCTS
+          return store.getters.SORTED_PRODUCTS
         }
       },
       
     },
     methods: {
-      ...mapActions([
-        'GET_PRODUCTS_FROM_API',
-        'GET_CATEGORIES_FROM_API',
-        'SORT_BY_CATEGORY',
-      ]),
-      sortByCategory(category) {
-        this.SORT_BY_CATEGORY(category)
-      },
       sortByPrice() {
-        this.$store.state.sortedProducts = this.SORTED_PRODUCTS.filter(i => i.price >= this.minPrice && i.price <= this.maxPrice)
+        store.dispatch('SORT_BY_PRICE', [this.minPrice, this.maxPrice])
       }
-      
     },
     mounted() {
-      this.GET_PRODUCTS_FROM_API()
-      this.GET_CATEGORIES_FROM_API()
+      store.dispatch('GET_PRODUCTS_FROM_API')
+      store.dispatch('GET_CATEGORIES_FROM_API')
     }
   }
 </script>

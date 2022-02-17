@@ -39,4 +39,7 @@ export default {
   SORT_BY_CATEGORY({commit}, category) {
     commit('SORT_BY_CATEGORY', category)
   },
+  SORT_BY_PRICE({commit}, [min, max]) {
+    commit('SORT_BY_PRICE', [min, max])
+  },
 }

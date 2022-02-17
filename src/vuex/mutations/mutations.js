@@ -35,7 +35,14 @@ export default {
     state.cart[index].quantity++
   },
   SORT_BY_CATEGORY(state, category) {
-    state.sortedProducts = state.products.filter(p => p.category == category.name)
+      state.sortedProducts = state.products.filter(p => p.category == category.name)
   },
+  SORT_BY_PRICE: (state, [min, max]) => {
+    if (state.sortedProducts.length) {
+      state.sortedProducts = state.sortedProducts.filter(i => i.price >= min && i.price <= max)
+    } else {
+      state.sortedProducts = state.products.filter(i => i.price >= min && i.price <= max)
+    }
+  }
   
 }
