@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 export default {
   SET_PRODUCTS_TO_STATE: (state, products) => {
     state.products = products
@@ -18,11 +16,11 @@ export default {
       })
       if (!isProductExists) {
         state.cart.push(product)
-        Vue.set(product, 'quantity', 1)
+        product.quantity = 1
       }
     } else {
       state.cart.push(product)
-      Vue.set(product, 'quantity', 1)
+      product.quantity = 1
     }
     
   },
