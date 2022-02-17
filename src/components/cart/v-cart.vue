@@ -9,38 +9,7 @@
           class="cart-items"
           v-if="$store.getters.CART.length"
         >
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Количество</th>
-                <th scope="col">Название</th>
-                <th scope="col">Цена</th>
-                <th scope="col" class="text-center">Действия</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                v-for="(product, i) in $store.getters.CART"
-                :key="product.id"
-              >
-                <th scope="row">{{product.quantity}}</th>
-                <td>{{product.title}}</td>
-                <td>{{product.price}} ₽</td>
-                <td class="d-flex justify-content-around">
-                  <a
-                    class="icon icon-minus"
-                    @click="removeFromCart(i)"
-                  >-</a>
-                  <a
-                    class="icon icon-plus"
-                    @click="incrementCartItem(i)"
-                  >+</a>
-                </td>
-                
-              </tr>
-              
-            </tbody>
-          </table>
+          <v-cart-items-list/>
         </div>
         
         <div
@@ -59,20 +28,17 @@
 </template>
 
 <script>
-  import store from '@/vuex/store'
-
+  import vCartItemsList from './v-cart-items-list'
   export default {
     name: 'v-cart',
+    components: {
+      vCartItemsList
+    },
     methods: {
-      removeFromCart(index) {
-        store.dispatch('REMOVE_PRODUCT_FROM_CART', index)
-      },
       closeCart() {
         this.$emit('closeCart')
       },
-      incrementCartItem(index) {
-        store.dispatch('INCREMENT_CART_ITEM', index)
-      },
+      
     },
   }
 </script>

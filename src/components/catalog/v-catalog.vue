@@ -1,41 +1,9 @@
 <template>
   <div class="v-catalog">
-    <v-header />
     <main>
       <div class="container">
         <div class="row">
-          <div class="col-3 col-xl-2 d-none d-lg-block">
-            <div class="filter">
-              <div class="filter-title">
-                <h5>Фильтр</h5>
-              </div>
-              <div class="filter-price">
-                <div class="filter-price_title">
-                  Цена
-                </div>
-                <form>
-                  <div class="filter-price_range">
-                    <div class="filter-price_input-wrapper">
-                      <label for="min" class="filter-price_label">от</label>
-                      <input id="min" class="filter-price_input" v-model.number="minPrice">
-                    </div>
-                    <div class="filter-price_input-wrapper">
-                      <label for="max" class="filter-price_label">до</label>
-                      <input id="max" class="filter-price_input" v-model.number="maxPrice">
-                    </div>
-                    
-                  </div>
-                  <button class="btn mb-3 mt-1" @click.prevent="sortByPrice">Отфильтровать</button>
-                </form>
-              </div>
-              <div class="filter-check">
-                <label class="filter-check_label">
-                  <input type="checkbox" value="sale" class="filter-check_checkbox" id="discount-checkbox" v-model="checked">
-                  <span class="filter-check_label-text">Акция</span>
-                </label>
-              </div>
-            </div>
-          </div>
+          <v-filter v-model="checked" />
           <div class="col-12 col-lg-9 col-xl-10">
             <div class="container">
               <div class="row no-gutters goods">
@@ -54,22 +22,20 @@
 </template>
 
 <script>
-  import vHeader from '../layouts/v-header'
+  import vFilter from '../layouts/v-filter'
   import vCatalogItem from './v-catalog-item'
   import store from '@/vuex/store'
 
   export default {
     name: 'v-catalog',
     components: {
-      vHeader,
+      vFilter,
       vCatalogItem,
     },
     
     data() {
       return {
         checked: false,
-        minPrice: 0,
-        maxPrice: 100000,
       }
     },
     computed: {
@@ -79,12 +45,6 @@
         } else {
           return store.getters.SORTED_PRODUCTS
         }
-      },
-      
-    },
-    methods: {
-      sortByPrice() {
-        store.dispatch('SORT_BY_PRICE', [this.minPrice, this.maxPrice])
       }
     },
     mounted() {
